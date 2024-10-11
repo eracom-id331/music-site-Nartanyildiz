@@ -1,138 +1,127 @@
-•⁠ ⁠ {
+/* Ajout d'une nouvelle police pour les titres */
+@import url("https://fonts.googleapis.com/css2?family=Krona+One&family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-img {
-  max-width: 100%;
-  display: block;
-}
 
 body {
-  font-family: sans-serif;
-}
-p {
-  line-height: 1.4;
-}
-header {
-  text-transform: uppercase;
-}
-nav a {
-  font-weight: bold;
-}
-
-nav ul {
-  list-style-type: none;
-}
-nav a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.title h1 {
+  font-family: "Jost";
+  background-color: #000000;
   color: white;
-  text-transform: uppercase;
-  font-size: 45rem;
-  opacity: 70%;
-  margin-bottom: 3rem;
 }
-.container {
-  max-width: fit-content;
-  margin: 0rem;
-  /* outline: 1px solid #f1357a; */
-  /* outline =bordure ne compte pas dans taille des éléments -> que pour le dev quand qqch n'est pas terminé*/
+
+h1,
+h2 {
+  font-family: "Krona One", sans-serif;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 1.5rem;
+}
+
+img,
+video {
+  max-width: 100%;
+  display: block;
 }
 
 header {
   display: flex;
   justify-content: space-between;
+  padding: 20px 0;
+  border-bottom: 2px solid #ddd;
 }
 
 header nav ul {
   display: flex;
-  /* gap: 2rem; */
+  gap: 1.5rem;
 }
 
 header nav a {
-  /* outline: 1px dotted #f1357a; */
-  padding: 1em;
-
-  /* border-left: 1px solid black; */
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
 
-/* selecteurs (choses en jaunes, se lisent de droite à gauche -> je séléctionne le ul dans le nav et dans le header */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-/* -------------------*/
-/--modules------------/ .hero {
+.title h1 {
+  color: white;
+  font-size: 8rem; /* Taille très grande pour le titre */
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 0;
+  line-height: 1;
+  mix-blend-mode: difference; /* Crée l'effet de contraste inversé avec la vidéo */
+}
+
+.hero {
   width: 100%;
-  /* outline: 1px solid black; */
   aspect-ratio: 16/9;
   position: relative;
+  background: #222; /* Ajout d'une couleur de fond */
 }
 
 .hero .carousel {
-  /* outline: 1px solid green; */
-  /* outline-offset: -2px; */
   width: 100%;
   height: 100%;
 }
 
-.hero .carousel img {
+.hero .carousel video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* outline: 1px solid yellow;
-  outline-offset: -4px; */
 }
 
 .hero .title {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-/* CTA */
-.title {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-html {
-  color: #222;
-  background-color: #eee;
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  padding: 20px;
-}
-
-.grid h2 {
-  margin-top: 4px;
-  color: #555;
-  font-weight: 400;
-}
-
-.grid img {
-  max-width: 100%;
+  top: 20px;
+  left: 20px;
+  width: auto;
+  height: auto;
 }
 
 .grid {
   display: grid;
-  gap: 1rem;
+  gap: 2rem;
+  margin: 40px 0;
+}
+
+.grid h2 {
+  margin-top: 8px;
+  color: #ffffff;
+  font-weight: 400;
+}
+
+.grid img {
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.grid img:hover {
+  transform: scale(1.05);
 }
 
 .biography {
   max-width: 80rem;
-  margin: auto;
+  margin: 40px auto;
+  padding: 0 20px;
 }
 
 .biography h1,
 .biography h2 {
   text-align: center;
+  margin-bottom: 2rem;
 }
 
 @media only screen and (min-width: 600px) {
@@ -143,27 +132,94 @@ body {
 
 @media only screen and (min-width: 800px) {
   .grid {
-    display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 1rem;
+    gap: 2rem;
   }
 }
 
-/* .grid {
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-}  */
+@media only screen and (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
 
-/* .grid {
-  grid-template-columns: repeat(auto-fit, 250px);
-} 
-
-
-/* =======================
-   EXEMPLE de Media Query
-   ======================= */
-
-@media only screen and (min-width: 800px) {
   html {
-    background-color: rgb(255, 255, 255);
+    background-color: #fff;
+  }
+}
+
+.grid img {
+  width: 100%;
+  height: auto; /* Préserver les proportions */
+  border-radius: 50%; /* Rendre l'image circulaire (comme un vinyle) */
+  transition: transform 0.5s ease-in-out; /* Transition douce pour commencer/arrêter la rotation */
+}
+
+.grid img:hover {
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+  justify-items: center;
+}
+
+.grid h2 {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.grid h2 {
+  margin-top: 10px;
+  text-align: center;
+}
+
+footer {
+  background-color: #000000; /* Fond du footer noir légèrement différent */
+  padding: 20px 0;
+  text-align: center;
+  color: white;
+  margin-top: 50px; /* Pour espacer du contenu principal */
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+footer p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.social-icons a {
+  margin: 0 10px;
+  display: inline-block;
+}
+
+.social-icons img {
+  width: 40px; /* Taille des icônes */
+  height: 40px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.social-icons img:hover {
+  transform: scale(1.2); /* Agrandir légèrement au survol */
+}
+
+/* Media queries pour le footer */
+@media only screen and (max-width: 600px) {
+  .social-icons img {
+    width: 30px;
+    height: 30px;
   }
 }
