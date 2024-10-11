@@ -1,22 +1,225 @@
-/* ==============
-   Style de base
-   ============== */
+/* Ajout d'une nouvelle police pour les titres */
+@import url("https://fonts.googleapis.com/css2?family=Krona+One&family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap");
 
-html {
-    color: #222;
-    background-color: #eee;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* =======================
-   EXEMPLE de Media Query
-   ======================= */
+body {
+  font-family: "Jost";
+  background-color: #000000;
+  color: white;
+}
+
+h1,
+h2 {
+  font-family: "Krona One", sans-serif;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 1.5rem;
+}
+
+img,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+  border-bottom: 2px solid #ddd;
+}
+
+header nav ul {
+  display: flex;
+  gap: 1.5rem;
+}
+
+header nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title h1 {
+  color: white;
+  font-size: 8rem; /* Taille très grande pour le titre */
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 0;
+  line-height: 1;
+  mix-blend-mode: difference; /* Crée l'effet de contraste inversé avec la vidéo */
+}
+
+.hero {
+  width: 100%;
+  aspect-ratio: 16/9;
+  position: relative;
+  background: #222; /* Ajout d'une couleur de fond */
+}
+
+.hero .carousel {
+  width: 100%;
+  height: 100%;
+}
+
+.hero .carousel video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero .title {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: auto;
+  height: auto;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+  margin: 40px 0;
+}
+
+.grid h2 {
+  margin-top: 8px;
+  color: #ffffff;
+  font-weight: 400;
+}
+
+.grid img {
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.grid img:hover {
+  transform: scale(1.05);
+}
+
+.biography {
+  max-width: 80rem;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.biography h1,
+.biography h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+@media only screen and (min-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
 
 @media only screen and (min-width: 800px) {
-
-    html {
-      background-color: #eae;
-    }
-
+  .grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+  }
 }
 
+@media only screen and (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
 
+  html {
+    background-color: #fff;
+  }
+}
+
+.grid img {
+  width: 100%;
+  height: auto; /* Préserver les proportions */
+  border-radius: 50%; /* Rendre l'image circulaire (comme un vinyle) */
+  transition: transform 0.5s ease-in-out; /* Transition douce pour commencer/arrêter la rotation */
+}
+
+.grid img:hover {
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+  justify-items: center;
+}
+
+.grid h2 {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.grid h2 {
+  margin-top: 10px;
+  text-align: center;
+}
+
+footer {
+  background-color: #000000; /* Fond du footer noir légèrement différent */
+  padding: 20px 0;
+  text-align: center;
+  color: white;
+  margin-top: 50px; /* Pour espacer du contenu principal */
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+footer p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.social-icons a {
+  margin: 0 10px;
+  display: inline-block;
+}
+
+.social-icons img {
+  width: 40px; /* Taille des icônes */
+  height: 40px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.social-icons img:hover {
+  transform: scale(1.2); /* Agrandir légèrement au survol */
+}
+
+/* Media queries pour le footer */
+@media only screen and (max-width: 600px) {
+  .social-icons img {
+    width: 30px;
+    height: 30px;
+  }
+}
